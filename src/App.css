@@ -1,42 +1,95 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.app {
+  font-family: 'Dosis', sans-serif; 
+  color: var(--text-primary);
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.section-container {
+  position: absolute;
+  right: 5%;
+  top: 20%;
+  max-width: 46%;
+  width: 46%;
+  height: auto;
+  border-radius: 30px;
+  padding: 1em 5em 2em 5em;
+  transition: all .2s ease-in-out;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.section-header {
+  display: flex;
+  padding-bottom: 30px;
+}
+
+.section-header::after {
+  content: "";
+  display: block;
+  width: 200px;
+  margin-top: 30px;
+  height: 1px;
+  margin-left: 20px;
+  background-color: var(--text-secondary);
+  opacity: 75%;
+}  
+
+p {
+  font-size: 22px;    
+}
+
+h1 {
+  font-size: 40px;
+  color: var(--highlight);
+}
+
+@media only screen and (max-width: 1920px) {
+  .section-container {
+      max-width: 58%;
+      width: 58%;  
+      right: 2%; 
   }
-  to {
-    transform: rotate(360deg);
+
+  .section-container p {
+      font-size: 21px;    
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@media only screen and (max-width: 1700px) {
+  .section-container {
+      max-width: 64%;
+      width: 64%;
+      right: 0%;  
+  }
+
+  .section-container p {
+      font-size: 18px;    
   }
 }
 
-.card {
-  padding: 2em;
+@media only screen and (max-width: 1400px) {
+  .section-container {
+      max-width: 65%;
+      width: 65%;
+      right: 0%;
+      top: 15%;
+  }
+
+  .section-container p {
+      font-size: 15px;    
+  }
 }
 
-.read-the-docs {
-  color: #888;
+@media only screen and (max-width: 1000px) {
+  .app {
+      display: flex;
+      flex-direction: column;
+      margin-left: 20px;
+  }
+  .section-container {
+      top: 75%;
+      max-width: 100%;
+      width: 100%;
+      height: auto;
+      border-radius: 30px;
+      padding: 1em 5em 2em 5em;
+      transition: all .2s ease-in-out;
+  }
 }

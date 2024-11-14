@@ -1,35 +1,50 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import Intro from './components/Intro'
+import NavBar from './components/NavBar'
+import About from './components/About'
+import Projects from './components/Projects'
+import Home from './components/Home'
+import Experience from './components/Experience'
+import Footer from './components/Footer'
+import Gallery from './components/Gallery'
+import { Analytics } from '@vercel/analytics/react'
+import { useState } from 'react'
+import { Fade } from 'react-awesome-reveal'
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [section, setSection] = useState(0);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="app">
+      <div className="left-container">
+        <Intro />
+        <NavBar 
+        setSection={setSection}
+        />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+      <Fade triggerOnce>
+        <div className="section-container">
+          {section === 0 && <Home />}
+          {section === 1 && <About />}
+          {section === 2 && <Experience />}
+          {section === 3 && <Projects />}
+          {section === 4 && <Gallery />}
+        </div>
+      </Fade>
+      <Footer />
+      <Analytics />
+    </div>
   )
 }
 
 export default App
+
+// popular resolutions: 
+// 1920 x 1080
+// 1366 × 768
+// add last active when not playing music on spotify or add when exactly you listened to each song in recently played
+// possible additions:
+// theme customizer OR light/dark mode
+// chatbot that answers questions about me
+// display last active if not playing a song on spotify
